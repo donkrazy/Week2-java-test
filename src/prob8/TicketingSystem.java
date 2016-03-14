@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TicketingSystem {
 	
-	List<Reservation> listReservation = new ArrayList<Reservation>();
+	static List<Reservation> listReservation = new ArrayList<Reservation>();
 	
 	public void addReservation( int movie_id, String customer_name ) {
 		Reservation r = new Reservation( movie_id, customer_name );
@@ -13,7 +13,12 @@ public class TicketingSystem {
 	}
 	
 	public boolean cancelReservation( String customer_name ) {
-		/* 예약 취소 기능 구현 코드를 작성합니다. */
+		for (Reservation reservation : listReservation) {
+			if(customer_name.equals(reservation.getCustomerName())){
+				listReservation.remove(reservation);
+				return true;
+			}
+		}
 		return false;
 	}
 		
@@ -24,7 +29,6 @@ public class TicketingSystem {
 				count++;
 			}
 		}	
-			
 		return count;
 	}
 }

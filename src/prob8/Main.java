@@ -64,7 +64,14 @@ public class Main {
 	}
 	
 	static void doCancel() throws IOException {
-		/* 예약 취소 기능 구현 코드를 작성합니다 */
+		System.out.println("Your name: ");
+		String name = br.readLine();
+		if(ts.cancelReservation(name)){
+			System.out.println("Cancelled.");
+		}
+		else{
+			System.out.println("NOT found");
+		}
 	}
 	
 	static void doCount() throws IOException {

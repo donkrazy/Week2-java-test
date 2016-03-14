@@ -6,15 +6,33 @@ public class Money {
         this.amount = amount;
     }
     public Money add( Money money ) {
-        //더하기
+    	int result = amount + money.amount;
+    	return new Money(result);
     }
     public Money minus( Money money ) {
-        //빼기
+    	int result = amount - money.amount;
+    	return new Money(result);
     }
     public Money multiply( Money money ) {
-        //곱하기
+    	int result = amount * money.amount;
+    	return new Money(result);
     }
     public Money devide( Money money ) {
-        //나누기
+    	int result = amount / money.amount;
+    	return new Money(result);
     }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Money other = (Money) obj;
+		if (amount != other.amount)
+			return false;
+		return true;
+	}
+    
 }
